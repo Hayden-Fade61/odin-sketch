@@ -11,12 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function createColumn(){
   const column = document.createElement("div");
   column.classList.toggle("col");
-  column.addEventListener("mouseover", () =>{
-    column.style.backgroundColor = "lightpink";
-  })
-  column.addEventListener("mouseleave", () =>{
-    column.style.backgroundColor = '';
-  })
+  // These two events create a hover effect, see also mouseout vs mouseleave
+  column.addEventListener("mouseover", () => {column.classList.toggle("drawn");});
+  column.addEventListener("mouseleave", () => {column.classList.toggle("drawn");});
   return column;
 }
 
