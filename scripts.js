@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function createColumn(){
   const column = document.createElement("div");
   column.classList.toggle("col");
-  column.addEventListener("hover", () =>{
+  column.addEventListener("mouseover", () =>{
     column.style.backgroundColor = "lightpink";
+  })
+  column.addEventListener("mouseleave", () =>{
+    column.style.backgroundColor = '';
   })
   return column;
 }
