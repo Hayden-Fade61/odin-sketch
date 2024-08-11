@@ -2,7 +2,8 @@ const INITIAL_SIZE = 16;
 const SIZE_LIMIT = 100;
 
 document.addEventListener("DOMContentLoaded", () => {createGrid(INITIAL_SIZE)}) // This event fires when page is done loading
-const  resizeButton = document.querySelector("#resize");
+const resizeButton = document.querySelector("#resize");
+const clearButton = document.querySelector("#clear");
 resizeButton.addEventListener('click', function() {
   let size = prompt('Please enter grid size as a number:'); // Prompt returns null if you hit cancel
   if(size > 100){
@@ -13,6 +14,12 @@ resizeButton.addEventListener('click', function() {
     destroyGrid();
     createGrid(size);
   }
+});
+clearButton.addEventListener('click', function() {
+  const drawnCols = document.querySelectorAll(".drawn");
+  drawnCols.forEach((col) => {
+    col.classList.toggle("drawn");
+  });
 });
 
 function createGrid(size){
@@ -47,6 +54,6 @@ function createColumn(){
   column.classList.toggle("col");
   // These two events create a hover effect, see also mouseout vs mouseleave
   column.addEventListener("mouseover", () => {column.classList.toggle("drawn");});
-  column.addEventListener("mouseleave", () => {column.classList.toggle("drawn");});
+  // column.addEventListener("mouseleave", () => {column.classList.toggle("drawn");});
   return column;
 }
