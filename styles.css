@@ -1,13 +1,16 @@
 body {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .canvas {
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    flex: 1;
 }
 
 .row {
