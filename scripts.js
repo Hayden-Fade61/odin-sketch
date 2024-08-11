@@ -18,7 +18,7 @@ resizeButton.addEventListener('click', function() {
 clearButton.addEventListener('click', function() {
   const drawnCols = document.querySelectorAll(".drawn");
   drawnCols.forEach((col) => {
-    col.classList.toggle("drawn");
+    col.classList.remove("drawn");
   });
 });
 
@@ -53,7 +53,7 @@ function createColumn(){
   const column = document.createElement("div");
   column.classList.toggle("col");
   // These two events create a hover effect, see also mouseout vs mouseleave
-  column.addEventListener("mouseover", () => {column.classList.toggle("drawn");});
-  // column.addEventListener("mouseleave", () => {column.classList.toggle("drawn");});
+  column.addEventListener("mouseover", () => {column.classList.add("drawn");});
+  column.addEventListener("click", () => {column.classList.remove("drawn");});
   return column;
 }
